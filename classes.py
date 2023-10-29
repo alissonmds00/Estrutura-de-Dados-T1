@@ -10,10 +10,11 @@ class Lista:
 
   #Metodos principais
 
+  #Palavras sao convertidas para lowercase e verifica se ja estao na lista
   def adicionar(self, palavra):
     palavra = palavra.lower()
     if self.consulta(palavra)[0]:
-      print(f"Palavra ja existente {palavra}".lower())
+      print(f"palavra ja existente: {palavra}")
       return False
     
     novo_No = No(palavra)
@@ -34,12 +35,12 @@ class Lista:
       return False, -1
     
     atual = self.prim
-    contador = 0
-    while (atual.dado.lower() != palavra and atual.prox):
+    anterior = None
+    while (atual.dado != palavra and atual.prox):
+      anterior = atual
       atual = atual.prox
-      contador += 1
-    if (atual.dado.lower() == palavra):
-      return True, contador
+    if (atual.dado == palavra):
+      return True, atual, anterior
     return False, -1
     
   def display(self, num=0):
@@ -70,12 +71,26 @@ class Lista:
       atual = atual.prox
     print(atual.dado.lower())
 
+  def removePalavra(self, palavra):
+    if not Lista_4.consulta(palavra):
+      print(f"palavra inexistente: {palavra}")
+      return False, -1
+    anteriorL4 = Lista_4.consulta(palavra)[2]
+    alvo = Lista_4.consulta(palavra)[1]
+    if Lista_4.consulta(palavra)[1] == Lista_4.prim:
+      Lista_4.prim = alvo.prox
+      alvo.prox = None
+      return True
+    anteriorL4.prox = alvo.prox
+    alvo.prox = None
+
+
   #Interfaces
 
   def inserirPalavra(self, palavra):
     palavra = palavra.lower()
     Lista_4.adicionar(palavra)
-    print(f"Palavra inserida: {palavra}")
+    print(f"palavra inserida: {palavra}")
     tamanho = len(palavra)
     if tamanho <= 5:
       Lista_1.adicionar(palavra)
@@ -121,7 +136,8 @@ Lista_3 = Lista()
 Lista_4 = Lista()
 lista = Lista()
 
-"""lista.inserirPalavra("Isca")
+
+lista.inserirPalavra("Isca")
 lista.inserirPalavra("Alisson")
 lista.inserirPalavra("Queijo")
 lista.inserirPalavra("Aabrao")
@@ -136,6 +152,17 @@ lista.inserirPalavra("tambor")
 lista.inserirPalavra("vapor")
 lista.inserirPalavra("vampiro")
 lista.inserirPalavra("xuxa")
+lista.inserirPalavra("xuxa")
+lista.listaPalavras(4)
+lista.removePalavra("xuxa")
+lista.listaPalavras(4)
+lista.removePalavra("paper")
+lista.listaPalavras(4)
+lista.removePalavra("aabrao")
+lista.listaPalavras(4)
+lista.removePalavra("pork")
+lista.listaPalavras(4)
+"""
 lista.NumdeLetras(4)
 lista.listaPalavras(3)
 lista.listaPalavras(1)
@@ -143,8 +170,8 @@ lista.listaPalavras(2)
 lista.NumdeLetras(5)
 lista.listaPalavras(3)
 lista.ListarIntervalo("z", "z")
-lista.listaPalavras(4)"""
-
+lista.listaPalavras(4)
+"""
 
 
 
