@@ -8,6 +8,7 @@ class Lista:
     self.prim = None
 
   def inserirPalavra(self, palavra):
+    Lista_4.adicionar(palavra.lower())
     tamanho = len(palavra)
     if tamanho <= 5:
       Lista_1.adicionar(palavra)
@@ -15,6 +16,16 @@ class Lista:
       Lista_2.adicionar(palavra)
     else:
       Lista_3.adicionar(palavra)
+  
+  def listaPalavras(self, lista):
+    if int(lista) == 1:
+      Lista_1.display()
+    elif int(lista) == 2:
+      Lista_2.display()
+    elif int(lista) == 3:
+      Lista_3.display()
+    elif int(lista) == 4:
+      Lista_4.display()
 
   def adicionar(self, palavra):
     palavra = palavra.lower()
@@ -65,6 +76,10 @@ Lista_2 = Lista()
 Lista_3 = Lista()
 Lista_4 = Lista()
 lista = Lista()
+
+
+
+
 
 
 
