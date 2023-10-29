@@ -49,12 +49,17 @@ class Lista:
       print("lista vazia")
       return False
     if num != 0:
+      cont = 0
       while(atual.prox):
         if (len(atual.dado) == num):
           print(atual.dado, end=" ")
+          cont += 1
         atual = atual.prox
       if (len(atual.dado) == num):
         print(atual.dado)
+        cont += 1
+      if cont == 0:
+        print("lista vazia")
       return True
     while(atual.prox):
       print(atual.dado.lower(), end=" ")
@@ -100,7 +105,8 @@ lista.inserirPalavra("Queijo")
 lista.inserirPalavra("Aabrao")
 lista.inserirPalavra("pork")
 lista.inserirPalavra("Ratinho")
-lista.inserirPalavra("Paper")"""
+lista.inserirPalavra("Paper")
+lista.NumdeLetras(2)"""
 
 
 
