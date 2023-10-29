@@ -99,16 +99,21 @@ class Lista:
 
   def ListarIntervalo(self, inicio, fim):
     atual = Lista_4.prim
+    contador = 0
     if not atual:
       print("lista vazia")
     while(atual.prox and fim >= atual.dado[0]):
       if atual.dado >= inicio:
+        contador += 1
         print(atual.dado, end=" ")
       atual = atual.prox
-    if atual.dado[0] == fim:
+    if fim == atual.dado[0] or inicio == atual.dado[0]:
+      contador += 1
       print(atual.dado)
-    else:
+    elif atual.dado[0] != fim and contador > 0:
       print()
+    if contador == 0:
+      print("lista vazia")
 
 Lista_1 = Lista()
 Lista_2 = Lista()
@@ -130,14 +135,14 @@ lista.inserirPalavra("urubu")
 lista.inserirPalavra("tambor")
 lista.inserirPalavra("vapor")
 lista.inserirPalavra("vampiro")
-lista.inserirPalavra("Xuxa")
+lista.inserirPalavra("xuxa")
 lista.NumdeLetras(4)
 lista.listaPalavras(3)
 lista.listaPalavras(1)
 lista.listaPalavras(2)
 lista.NumdeLetras(5)
 lista.listaPalavras(3)
-lista.ListarIntervalo("b", "v")
+lista.ListarIntervalo("z", "z")
 lista.listaPalavras(4)"""
 
 
