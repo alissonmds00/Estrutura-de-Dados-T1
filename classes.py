@@ -48,6 +48,7 @@ class Lista:
     if not atual:
       print("lista vazia")
       return False
+    
     if num != 0:
       cont = 0
       while(atual.prox):
@@ -58,9 +59,12 @@ class Lista:
       if (len(atual.dado) == num):
         print(atual.dado)
         cont += 1
+      else:
+        print()
       if cont == 0:
         print("lista vazia")
       return True
+    
     while(atual.prox):
       print(atual.dado.lower(), end=" ")
       atual = atual.prox
@@ -69,8 +73,9 @@ class Lista:
   #Interfaces
 
   def inserirPalavra(self, palavra):
-    Lista_4.adicionar(palavra.lower())
-    print(f"Palavra inserida: {palavra}".lower())
+    palavra = palavra.lower()
+    Lista_4.adicionar(palavra)
+    print(f"Palavra inserida: {palavra}")
     tamanho = len(palavra)
     if tamanho <= 5:
       Lista_1.adicionar(palavra)
@@ -92,6 +97,18 @@ class Lista:
   def NumdeLetras(self, num=0):
     Lista_4.display(num)
 
+  def ListarIntervalo(self, inicio, fim):
+    atual = Lista_4.prim
+    if not atual:
+      print("lista vazia")
+    while(atual.prox and fim >= atual.dado[0]):
+      if atual.dado >= inicio:
+        print(atual.dado, end=" ")
+      atual = atual.prox
+    if atual.dado[0] == fim:
+      print(atual.dado)
+    else:
+      print()
 
 Lista_1 = Lista()
 Lista_2 = Lista()
@@ -106,7 +123,23 @@ lista.inserirPalavra("Aabrao")
 lista.inserirPalavra("pork")
 lista.inserirPalavra("Ratinho")
 lista.inserirPalavra("Paper")
-lista.NumdeLetras(2)"""
+lista.inserirPalavra('tatu')
+lista.inserirPalavra("rolinha")
+lista.inserirPalavra("Roliman")
+lista.inserirPalavra("urubu")
+lista.inserirPalavra("tambor")
+lista.inserirPalavra("vapor")
+lista.inserirPalavra("vampiro")
+lista.inserirPalavra("Xuxa")
+lista.NumdeLetras(4)
+lista.listaPalavras(3)
+lista.listaPalavras(1)
+lista.listaPalavras(2)
+lista.NumdeLetras(5)
+lista.listaPalavras(3)
+lista.ListarIntervalo("b", "v")
+lista.listaPalavras(4)"""
+
 
 
 
