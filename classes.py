@@ -75,6 +75,7 @@ class Lista:
     if not Lista_4.consulta(palavra):
       print(f"palavra inexistente: {palavra}")
       return False, -1
+    print(f"palavra removida: {palavra}")
     anteriorL4 = Lista_4.consulta(palavra)[2]
     alvo = Lista_4.consulta(palavra)[1]
     if Lista_4.consulta(palavra)[1] == Lista_4.prim:
@@ -136,42 +137,6 @@ Lista_3 = Lista()
 Lista_4 = Lista()
 lista = Lista()
 
-
-lista.inserirPalavra("Isca")
-lista.inserirPalavra("Alisson")
-lista.inserirPalavra("Queijo")
-lista.inserirPalavra("Aabrao")
-lista.inserirPalavra("pork")
-lista.inserirPalavra("Ratinho")
-lista.inserirPalavra("Paper")
-lista.inserirPalavra('tatu')
-lista.inserirPalavra("rolinha")
-lista.inserirPalavra("Roliman")
-lista.inserirPalavra("urubu")
-lista.inserirPalavra("tambor")
-lista.inserirPalavra("vapor")
-lista.inserirPalavra("vampiro")
-lista.inserirPalavra("xuxa")
-lista.inserirPalavra("xuxa")
-lista.listaPalavras(4)
-lista.removePalavra("xuxa")
-lista.listaPalavras(4)
-lista.removePalavra("paper")
-lista.listaPalavras(4)
-lista.removePalavra("aabrao")
-lista.listaPalavras(4)
-lista.removePalavra("pork")
-lista.listaPalavras(4)
-"""
-lista.NumdeLetras(4)
-lista.listaPalavras(3)
-lista.listaPalavras(1)
-lista.listaPalavras(2)
-lista.NumdeLetras(5)
-lista.listaPalavras(3)
-lista.ListarIntervalo("z", "z")
-lista.listaPalavras(4)
-"""
 
 
 
