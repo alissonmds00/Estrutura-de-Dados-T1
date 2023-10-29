@@ -72,12 +72,20 @@ class Lista:
     print(atual.dado.lower())
 
   def removePalavra(self, palavra):
+    if len(palavra) <= 5:
+      lista_alvo = Lista_1
+    elif 5 < len(palavra) <= 10:
+      lista_alvo = Lista_2
+    else:
+      lista_alvo = Lista_3
     if not Lista_4.consulta(palavra):
       print(f"palavra inexistente: {palavra}")
       return False, -1
     print(f"palavra removida: {palavra}")
     anteriorL4 = Lista_4.consulta(palavra)[2]
+    anteriorLA = lista_alvo.consulta(palavra)[2]
     alvo = Lista_4.consulta(palavra)[1]
+    alvoLA = lista_alvo.consulta(palavra)[1]
     if Lista_4.consulta(palavra)[1] == Lista_4.prim:
       Lista_4.prim = alvo.prox
       alvo.prox = None
@@ -85,6 +93,12 @@ class Lista:
     anteriorL4.prox = alvo.prox
     alvo.prox = None
 
+    if lista_alvo.consulta(palavra)[1] == lista_alvo.prim:
+      lista_alvo.prim = alvoLA.prox
+      alvoLA.prox = None
+      return True
+    anteriorLA.prox = alvoLA.prox
+    alvoLA.prox = None
 
   #Interfaces
 
@@ -136,6 +150,33 @@ Lista_2 = Lista()
 Lista_3 = Lista()
 Lista_4 = Lista()
 lista = Lista()
+
+lista.inserirPalavra("Isca")
+lista.inserirPalavra("Alisson")
+lista.inserirPalavra("Queijo")
+lista.inserirPalavra("Aabrao")
+lista.inserirPalavra("pork")
+lista.inserirPalavra("Ratinho")
+lista.inserirPalavra("Paper")
+lista.inserirPalavra('tatu')
+lista.inserirPalavra("rolinha")
+lista.inserirPalavra("Roliman")
+lista.inserirPalavra("urubu")
+lista.inserirPalavra("tambor")
+lista.inserirPalavra("vapor")
+lista.inserirPalavra("vampiro")
+lista.inserirPalavra("xuxa")
+lista.inserirPalavra("xuxa")
+lista.listaPalavras(4)
+lista.removePalavra("xuxa")
+lista.listaPalavras(4)
+lista.removePalavra("paper")
+lista.listaPalavras(4)
+lista.removePalavra("aabrao")
+lista.listaPalavras(4)
+lista.removePalavra("pork")
+lista.listaPalavras(4)
+lista.listaPalavras(1)
 
 
 
