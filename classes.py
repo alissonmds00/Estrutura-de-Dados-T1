@@ -54,20 +54,18 @@ class Lista:
       cont = 0
       while(atual.prox):
         if (len(atual.dado) == num):
-          print(atual.dado, end=" ")
+          print(atual.dado)
           cont += 1
         atual = atual.prox
       if (len(atual.dado) == num):
         print(atual.dado)
         cont += 1
-      else:
-        print()
       if cont == 0:
         print("lista vazia")
       return True
     
     while(atual.prox):
-      print(atual.dado.lower(), end=" ")
+      print(atual.dado.lower())
       atual = atual.prox
     print(atual.dado.lower())
 
@@ -151,32 +149,6 @@ Lista_3 = Lista()
 Lista_4 = Lista()
 lista = Lista()
 
-lista.inserirPalavra("Isca")
-lista.inserirPalavra("Alisson")
-lista.inserirPalavra("Queijo")
-lista.inserirPalavra("Aabrao")
-lista.inserirPalavra("pork")
-lista.inserirPalavra("Ratinho")
-lista.inserirPalavra("Paper")
-lista.inserirPalavra('tatu')
-lista.inserirPalavra("rolinha")
-lista.inserirPalavra("Roliman")
-lista.inserirPalavra("urubu")
-lista.inserirPalavra("tambor")
-lista.inserirPalavra("vapor")
-lista.inserirPalavra("vampiro")
-lista.inserirPalavra("xuxa")
-lista.inserirPalavra("xuxa")
-lista.listaPalavras(4)
-lista.removePalavra("xuxa")
-lista.listaPalavras(4)
-lista.removePalavra("paper")
-lista.listaPalavras(4)
-lista.removePalavra("aabrao")
-lista.listaPalavras(4)
-lista.removePalavra("pork")
-lista.listaPalavras(4)
-lista.listaPalavras(1)
 
 
 
