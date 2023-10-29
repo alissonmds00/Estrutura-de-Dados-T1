@@ -7,50 +7,64 @@ class Lista:
   def __init__(self):
     self.prim = None
 
-  def adicionar(self, palavra):
-    if self.consulta(palavra)[0]:
-      return False
+  def inserirPalavra(self, palavra):
+    tamanho = len(palavra)
+    if tamanho <= 5:
+      Lista_1.adicionar(palavra)
+    elif tamanho > 5 and tamanho <= 10:
+      Lista_2.adicionar(palavra)
     else:
-      novo_No = No(palavra)
-      if not self.prim or palavra < self.prim.dado:
-        novo_No.prox = self.prim
-        self.prim = novo_No
-        return True
-      atual = self.prim
-      while(atual.prox and atual.prox.dado < palavra):
-        atual = atual.prox
-      novo_No.prox = atual.prox
-      atual.prox = novo_No
+      Lista_3.adicionar(palavra)
+
+  def adicionar(self, palavra):
+    palavra = palavra.lower()
+    if self.consulta(palavra)[0]:
+      print(f"Palavra ja existente {palavra}".lower())
+      return False
+    
+    novo_No = No(palavra)
+    print(f"Palavra inserida: {palavra}".lower())
+    if not self.prim or palavra < self.prim.dado:
+      novo_No.prox = self.prim
+      self.prim = novo_No
+      return True
+    
+    atual = self.prim
+    while (atual.prox and palavra > atual.prox.dado):
+      atual = atual.prox
+    novo_No.prox = atual.prox
+    atual.prox = novo_No
 
   def consulta(self, palavra):
+    palavra = palavra.lower()
     if not self.prim:
       return False, -1
+    
     atual = self.prim
     contador = 0
-    while (atual.dado != palavra and atual.prox):
+    while (atual.dado.lower() != palavra and atual.prox):
       atual = atual.prox
       contador += 1
-    if (atual.dado == palavra):
+    if (atual.dado.lower() == palavra):
       return True, contador
-    else:
-      return False, -1
+    return False, -1
     
   def display(self):
     atual = self.prim
-    if atual:
-      while(atual.prox):
-        print(atual.dado, end=" ")
-        atual = atual.prox
-      print(atual.dado)
+    if not atual:
+      print("lista vazia")
+      return False
+    while(atual.prox):
+      print(atual.dado.lower(), end=" ")
+      atual = atual.prox
+    print(atual.dado.lower())
+    
 
-L1 = Lista()
-
-L1.adicionar("Isca")
-L1.adicionar("Alisson")
-L1.adicionar("Queijo")
-L1.adicionar("Aabrao")
-L1.adicionar("Ratinho")
-L1.adicionar("Paper")
+Lista_1 = Lista()
+Lista_2 = Lista()
+Lista_3 = Lista()
+Lista_4 = Lista()
+lista = Lista()
 
 
-L1.display()
+
