@@ -133,13 +133,11 @@ class Lista:
     while(atual.prox and fim >= atual.dado[0]):
       if atual.dado >= inicio:
         contador += 1
-        print(atual.dado, end=" ")
+        print(atual.dado)
       atual = atual.prox
     if fim == atual.dado[0] or inicio == atual.dado[0]:
       contador += 1
       print(atual.dado)
-    elif atual.dado[0] != fim and contador > 0:
-      print()
     if contador == 0:
       print("lista vazia")
 

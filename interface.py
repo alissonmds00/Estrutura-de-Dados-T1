@@ -12,7 +12,7 @@ while(escolha != "e"):
     lista.listaPalavras(valor)
   if escolha == "x": 
     valor = int(input())
-    lista.listaPalavras(valor)
+    lista.NumdeLetras(valor)
   if escolha == "o":
     inicio = input()
     fim = input()
